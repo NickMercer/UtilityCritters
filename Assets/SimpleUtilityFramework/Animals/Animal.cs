@@ -19,6 +19,9 @@ public class Animal : MonoBehaviour
     [Header("Settings")]
     [SerializeField]
     private List<string> _animalNames;
+
+    [SerializeField]
+    private AnimalStats _stats;
     
     private void Awake()
     {
@@ -36,5 +39,8 @@ public class Animal : MonoBehaviour
         _spriteRenderer.color = new Color(Random.Range(0.7f, 1f), Random.Range(0.7f, 1f), Random.Range(0.7f, 1f));
         var size = Random.Range(0.7f, 1f);
         transform.localScale = new Vector3(size, size, size);
+        
+        //Set stats
+        _stats = animalData.GetAnimalStats();
     }
 }
