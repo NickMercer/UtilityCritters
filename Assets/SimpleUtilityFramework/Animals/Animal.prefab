@@ -119,7 +119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.904}
+  m_AnchoredPosition: {x: 0, y: -0.26}
   m_SizeDelta: {x: 30, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1051600045791483057
@@ -266,6 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1051600046872363073}
   - component: {fileID: 1051600046872363072}
+  - component: {fileID: 3182889000868982504}
   m_Layer: 0
   m_Name: Animal
   m_TagString: Untagged
@@ -310,9 +311,6 @@ MonoBehaviour:
   _namePlate: {fileID: 1051600045791483058}
   _spriteRenderer: {fileID: 1051600047311507912}
   _brain: {fileID: 416132074516354523}
-  _blackboard:
-    Self: {fileID: 0}
-    Animal: {fileID: 0}
   _animalNames:
   - Timothy
   - Sara
@@ -338,6 +336,17 @@ MonoBehaviour:
     MaxThirst: 0
     _energy: 0
     MaxEnergy: 0
+--- !u!210 &3182889000868982504
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051600046872363074}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &1051600047311507913
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +431,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!58 &1051600047311507917
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -436,7 +445,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.69}
   serializedVersion: 2
   m_Radius: 0.955
 --- !u!1 &1051600047718887883
@@ -484,8 +493,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blackboard:
-    Self: {fileID: 0}
-    Animal: {fileID: 0}
+    _animal: {fileID: 0}
+    _globalBlackboard: {fileID: 0}
+  _potentialActions: []
+  _lastScores: []
 --- !u!1 &2125323208037366572
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8872562808516305923
 Transform:
   m_ObjectHideFlags: 0
@@ -595,7 +606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2693750997997118359}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.837, z: 0}
+  m_LocalPosition: {x: 0, y: 1.468, z: 0}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -670,7 +681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4628288291077826619
 Transform:
   m_ObjectHideFlags: 0
@@ -678,8 +689,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3259337773091020152}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.837, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.468, z: 0}
   m_LocalScale: {x: 1.05, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -847,7 +858,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7519126501682085867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.555, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -870,6 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthObject: {fileID: 2693750997997118359}
+  _healthBackground: {fileID: 3259337773091020152}
   _hungerObject: {fileID: 208791403784377718}
   _thirstObject: {fileID: 2125323208037366572}
   _energyObject: {fileID: 3387693927755507669}

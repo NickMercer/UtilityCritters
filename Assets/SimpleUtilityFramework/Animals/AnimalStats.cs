@@ -47,11 +47,11 @@ public class AnimalStats
 
         MaxHunger = maxHunger;
         // Set Hunger to a random value between 25% and 60%
-        _hunger = Mathf.RoundToInt(maxHunger * Random.Range(0.25f, .6f));
+        _hunger = Mathf.RoundToInt(maxHunger * Random.Range(0.25f, 0.6f));
 
         MaxThirst = maxThirst;
         // Set Thirst to a random value between 25% and 60%
-        _thirst = Mathf.RoundToInt(maxThirst * Random.Range(0.25f, .6f));
+        _thirst = Mathf.RoundToInt(maxThirst * Random.Range(0.1f, 0.35f));
 
         MaxEnergy = maxEnergy;
         // Set Energy to a random value between 50% and 100%

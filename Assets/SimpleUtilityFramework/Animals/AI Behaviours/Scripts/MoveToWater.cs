@@ -54,7 +54,7 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
             var closenessScore = Mathf.Max(0.5f, 1f - (distanceToWater / distanceReference));
 
             //Randomize a bit
-            var randomScore = Random.Range(0.9f, 1.1f);
+            var randomScore = Random.Range(0.95f, 1.05f);
             
             return thirstScore * restorationScore * closenessScore * randomScore;
         }
