@@ -4,7 +4,13 @@ using UnityEngine;
 namespace Natick.SimpleUtility
 {
     [Serializable]
-    public struct ActionTarget
+    public class ActionTarget<T> : ActionTarget
+    {
+        public T Target;
+    }
+
+    [Serializable]
+    public class ActionTarget
     {
         public GameObject TargetObject;
 

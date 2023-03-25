@@ -1,53 +1,61 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
+using DG.Tweening;
+using DG.Tweening.Core;
 
 [Serializable]
 public class AnimalStats
 {
-    public int MaxHealth;
-
-    [SerializeField]
+    [Header("Health")]
+    [SerializeField, ShowOnly]
     private int _health;
     public int Health => _health;
-
-    public int MaxHunger;
-
-    [SerializeField]
+    [ShowOnly]
+    public int MaxHealth;
+    
+    [Space(10)]
+    [Header("Hunger")]
+    [SerializeField, ShowOnly]
     private int _hunger;
     public int Hunger => _hunger;
-
-    public int MaxThirst;
-
-    [SerializeField]
+    [ShowOnly]
+    public int MaxHunger;
+    
+    [Space(10)]
+    [Header("Thirst")]
+    [SerializeField, ShowOnly]
     private int _thirst;
     public int Thirst => _thirst;
-
-    public int MaxEnergy;
-
-    [SerializeField]
+    [ShowOnly]
+    public int MaxThirst;
+    
+    [Space(10)]
+    [Header("Energy")]
+    [SerializeField, ShowOnly]
     private int _energy;
     public int Energy => _energy;
     
-    [SerializeField]
-    private int _sleepThreshold;
-    public int SleepThreshold => _sleepThreshold;
+    [ShowOnly]
+    public int MaxEnergy;
     
-    
-    public AnimalStats(int maxHealth, int maxHunger, int maxThirst, int maxEnergy, int sleepThreshold)
+
+    public AnimalStats(int maxHealth, int maxHunger, int maxThirst, int maxEnergy)
     {
         MaxHealth = maxHealth;
         _health = maxHealth;
 
         MaxHunger = maxHunger;
-        _hunger = maxHunger;
+        // Set Hunger to a random value between 25% and 60%
+        _hunger = Mathf.RoundToInt(maxHunger * Random.Range(0.25f, .6f));
 
         MaxThirst = maxThirst;
-        _thirst = maxThirst;
+        // Set Thirst to a random value between 25% and 60%
+        _thirst = Mathf.RoundToInt(maxThirst * Random.Range(0.25f, .6f));
 
         MaxEnergy = maxEnergy;
-        _energy = maxEnergy;
-
-        _sleepThreshold = sleepThreshold;
+        // Set Energy to a random value between 50% and 100%
+        _energy = Mathf.RoundToInt(maxEnergy * Random.Range(0.5f, 1f));
     }
 
     public void Tick()
@@ -55,5 +63,33 @@ public class AnimalStats
         _hunger = Mathf.Clamp(_hunger + 1, 0, MaxHunger);
         _thirst = Mathf.Clamp(_thirst + 1, 0, MaxThirst);
         _energy = Mathf.Clamp(_energy - 1, 0, MaxEnergy);
+
+        if (_energy < 5)
+            _health = Mathf.Clamp(_health - 1, 0, MaxHealth);
+        
+        if (_hunger == MaxHunger)
+            _health = Mathf.Clamp(_health - 1, 0, MaxHealth);
+        
+        if (_thirst == MaxThirst)
+            _health = Mathf.Clamp(_health - 1, 0, MaxHealth);
+    }
+
+    public void UpdateHunger(int hunger)
+    {
+        _hunger += hunger;
+    }
+
+    public void UpdateThirst(int thirst)
+    {
+        _thirst += thirst;
+    }
+
+    public void RegenerateEnergy(float secondsToRegen)
+    {
+        DOTween.To(() => Energy, 
+            (x) => _energy = x, 
+            Mathf.Min(_energy + (5 * (int)secondsToRegen), MaxEnergy), 
+            secondsToRegen)
+            .Play();
     }
 }

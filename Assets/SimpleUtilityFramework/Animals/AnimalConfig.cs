@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using SimpleUtilityFramework.UtilitySystem;
+using UnityEngine;
 
 namespace SimpleUtilityFramework.Animals
 {
-    [CreateAssetMenu(fileName = "Animal Config", menuName = "New Animal Config", order = 0)]
+    [CreateAssetMenu(menuName = "Animal Config", fileName = "New Animal Config", order = 0)]
     public class AnimalConfig : ScriptableObject
     {
         [SerializeField]
@@ -28,14 +30,18 @@ namespace SimpleUtilityFramework.Animals
         [SerializeField, Range(35, 150)] 
         private int _maxEnergy;
         public int MaxEnergy => _maxEnergy;
+
+        [SerializeField]
+        private float _walkSpeed = 10;
+        public float WalkSpeed => _walkSpeed;
         
-        [SerializeField, Range(0, 30)] 
-        private int _sleepThreshold;
-        public int SleepThreshold => _sleepThreshold;
+        [SerializeField]
+        private List<AIBehaviour> _aiBehaviours;
+        public List<AIBehaviour> AIBehaviours => _aiBehaviours;
         
         public AnimalStats GetAnimalStats()
         {
-            return new AnimalStats(MaxHealth, MaxHunger, MaxThirst, MaxEnergy, SleepThreshold);
+            return new AnimalStats(MaxHealth, MaxHunger, MaxThirst, MaxEnergy);
         }
     }
 }
