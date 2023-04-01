@@ -100,4 +100,6 @@ MonoBehaviour:
   _hungerEmote: {fileID: 21300000, guid: 6643085299b49064082a16e69b9f3776, type: 3}
   _thirstSprite: {fileID: 21300000, guid: b1739b44a7ca89c49a2fe895939a4545, type: 3}
   _sleepEmote: {fileID: 21300000, guid: 730700b0d19569f44bbcf2407cf2c6a7, type: 3}
+  _chaseEmote: {fileID: 21300000, guid: 1565e8d2377472b4796e228f4ce9c6a5, type: 3}
+  _runEmote: {fileID: 21300000, guid: 7c991bc2f03e58a4c8a209588a2479dd, type: 3}
   _spriteRenderer: {fileID: 388342132207081096}

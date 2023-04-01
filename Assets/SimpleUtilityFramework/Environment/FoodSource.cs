@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SimpleUtilityFramework.Environment
 {
@@ -11,6 +10,10 @@ namespace SimpleUtilityFramework.Environment
         [SerializeField]
         private int _foodAmount;
         public int FoodAmount => _foodAmount;
+
+        [SerializeField]
+        private FoodType _foodType;
+        public FoodType FoodType => _foodType;
 
         [SerializeField]
         private ReplenishableObject _replenishable;

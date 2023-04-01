@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a45365bd2cf40daba44d18cdb3160a2, type: 3}
   m_Name: Sleep
   m_EditorClassIdentifier: 
+  _emotePrefab: {fileID: 388342132207081097, guid: cefde015cbd1ce449a922275d5eba65f, type: 3}

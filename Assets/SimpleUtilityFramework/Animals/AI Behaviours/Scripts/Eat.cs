@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using DG.Tweening;
 using Natick.SimpleUtility;
 using SimpleUtilityFramework.Environment;
 using SimpleUtilityFramework.UtilitySystem;
@@ -12,52 +11,50 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
     [CreateAssetMenu(fileName = "New Eat", menuName = "AI Behaviours/Eat", order = 0)]
     public class Eat : AIBehaviour
     {
+        [SerializeField]
+        private float _secondsToEat = 1f;
+        
         public override IEnumerable<ActionTarget> GetTargets(AIBlackboard blackboard)
         {
-            //Get all foods within eating range (1f)
-            var colliders = new Collider2D[5];
-            var size = Physics2D.OverlapCircleNonAlloc(blackboard.Self.transform.position, 1f, colliders);
-            for (var i = 0; i < size; i++)
+            //Get all foods within eating range
+            foreach (var foodSource in AIHelpers.GetInRange<FoodSource>(0.5f, blackboard.Self.transform.position))
             {
-                var collider = colliders[i];
-                var food = collider.GetComponent<FoodSource>();
-                if (food != null)
+                if (foodSource.FoodType == blackboard.Animal.AnimalData.FoodSourceType && foodSource.IsAvailable)
                 {
                     yield return new ActionTarget<FoodSource>
                     {
-                        Target = food,
-                        TargetLocation = food.transform.position,
-                        TargetObject = food.gameObject
+                        Target = foodSource,
+                        TargetLocation = foodSource.transform.position,
+                        TargetObject = foodSource.gameObject
                     };
                 }
             }
         }
 
-        public override float Score(AIBlackboard blackboard, ActionTarget target)
+        public override FloatNormal Score(AIBlackboard blackboard, ActionTarget target)
         {
-            var food = (target as ActionTarget<FoodSource>).Target;
+            var food = ((ActionTarget<FoodSource>) target).Target;
             if (food.IsAvailable == false)
-                return 0f;
+                return FloatNormal.Zero;
 
-            var currentHunger = blackboard.Animal.Stats.Hunger;
-            var maxHunger = blackboard.Animal.Stats.MaxHunger;
-            var hungerScore = currentHunger / (float)maxHunger;
+            var hungerScore = blackboard.Animal.Stats.HungerPercentage;
             var foodQuality = food.FoodAmount / 30f;
             
-            return hungerScore * foodQuality;
+            return new FloatNormal(hungerScore * foodQuality);
         }
 
         public override IEnumerator Act(AIBlackboard blackboard, ActionTarget target, Action onComplete)
         {
-            var food = (target as ActionTarget<FoodSource>).Target;
+            var animal = blackboard.Animal;
+            var food = ((ActionTarget<FoodSource>) target).Target;
             
-            blackboard.Self.transform.DOShakeRotation(1f, 30f);
+            animal.AnimateEating(_secondsToEat);
             food.Occupy();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(_secondsToEat/2);
             
             food.Consume(blackboard.Animal);
-
-            yield return new WaitForSeconds(0.5f);
+ 
+            yield return new WaitForSeconds(_secondsToEat/2);
             onComplete?.Invoke();
         }
     }

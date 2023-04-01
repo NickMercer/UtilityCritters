@@ -15,7 +15,9 @@ namespace Natick.SimpleUtility
 
         [SerializeField, ShowOnly]
         private List<ActionSelection> _lastScores = new List<ActionSelection>();
-        
+
+        private ActionSelection _lastSelection = new ActionSelection();
+
         public void Initialize(Animal animal)
         {
             _blackboard = new AIBlackboard(animal);
@@ -25,6 +27,8 @@ namespace Natick.SimpleUtility
         public ActionSelection Decide()
         {
             _lastScores.Clear();
+            _blackboard.LastSelection = _lastSelection;
+            
             ActionSelection topSelection = default;
             foreach (var action in _potentialActions)
             {
@@ -35,13 +39,14 @@ namespace Natick.SimpleUtility
                     var selection = new ActionSelection(action, target, score);
                     _lastScores.Add(selection);
                     
-                    if (score > topSelection.Score)
+                    if (score.Value > topSelection.Score.Value)
                     {
                         topSelection = selection;
                     }
                 }
             }
 
+            _lastSelection = topSelection;
             return topSelection;
         }
     }

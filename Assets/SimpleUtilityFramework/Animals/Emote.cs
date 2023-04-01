@@ -13,6 +13,12 @@ public class Emote : MonoBehaviour
     private Sprite _sleepEmote;
 
     [SerializeField]
+    private Sprite _chaseEmote;
+
+    [SerializeField]
+    private Sprite _runEmote;
+
+    [SerializeField]
     private SpriteRenderer _spriteRenderer;
 
     public void Initialize(EmoteType emoteType, float duration = 2f)
@@ -29,6 +35,14 @@ public class Emote : MonoBehaviour
             
             case EmoteType.Sleep:
                 _spriteRenderer.sprite = _sleepEmote;
+                break;
+            
+            case EmoteType.Chase:
+                _spriteRenderer.sprite = _chaseEmote;
+                break;
+            
+            case EmoteType.Run:
+                _spriteRenderer.sprite = _runEmote;
                 break;
         }
         

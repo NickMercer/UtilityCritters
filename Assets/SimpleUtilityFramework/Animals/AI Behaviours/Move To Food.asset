@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c578898bad9486796730aad15593302, type: 3}
   m_Name: Move To Food
   m_EditorClassIdentifier: 
+  _emotePrefab: {fileID: 388342132207081097, guid: cefde015cbd1ce449a922275d5eba65f, type: 3}

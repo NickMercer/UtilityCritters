@@ -17,7 +17,7 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
             yield return new ActionTarget();
         }
 
-        public override float Score(AIBlackboard blackboard, ActionTarget target) => 0.3f + Random.Range(-0.1f, 0.1f);
+        public override FloatNormal Score(AIBlackboard blackboard, ActionTarget target) => new FloatNormal(0.3f + Random.Range(-0.1f, 0.1f));
 
         public override IEnumerator Act(AIBlackboard blackboard, ActionTarget target, Action onComplete)
         {

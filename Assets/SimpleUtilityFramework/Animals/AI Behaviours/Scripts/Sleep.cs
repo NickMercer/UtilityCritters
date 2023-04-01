@@ -12,37 +12,50 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
     [CreateAssetMenu(menuName = "AI Behaviours/Sleep", fileName = "New Sleep", order = 0)]
     public class Sleep : AIBehaviour
     {
+        [SerializeField]
+        private Emote _emotePrefab;
+
+        [SerializeField]
+        private float _minSleepSeconds = 6f;
+
+        [SerializeField]
+        private float _maxSleepSeconds = 10f;
+
+        [SerializeField]
+        private int _energyPerSecond = 5;
+        
         public override IEnumerable<ActionTarget> GetTargets(AIBlackboard blackboard)
         {
             yield return new ActionTarget();
         }
 
-        public override float Score(AIBlackboard blackboard, ActionTarget target)
+        public override FloatNormal Score(AIBlackboard blackboard, ActionTarget target)
         {
-            var currentEnergy = blackboard.Animal.Stats.Energy;
-            var maxEnergy = blackboard.Animal.Stats.MaxEnergy;
-            var energyScore = 1 - (currentEnergy / (float)maxEnergy);
+            var energyScore = 1 - blackboard.Animal.Stats.EnergyPercentage;
             
             //Randomize a bit
             var randomScore = Random.Range(0.9f, 1.1f);
             
-            return energyScore * randomScore;
+            return new FloatNormal(energyScore * randomScore);
         }
 
         public override IEnumerator Act(AIBlackboard blackboard, ActionTarget target, Action onComplete)
         {
+            var animal = blackboard.Animal;
             var transform = blackboard.Self.transform;
-            transform.DORotate(new Vector3(-45, 0, 0), 1f);
+            
+            animal.AnimateSleeping(1f);
             yield return new WaitForSeconds(1f);
 
-            var sleepTime = Random.Range(6f, 10f);
-            blackboard.Animal.Stats.RegenerateEnergy(sleepTime);
-            var emote = Instantiate(GlobalBlackboard.EmotePrefab, transform.position + new Vector3(0, 1, 0), Quaternion.identity, transform);
-            emote.Initialize(EmoteType.Sleep, sleepTime);
-            yield return new WaitForSeconds(6f);
+            var sleepTime = Random.Range(_minSleepSeconds, _maxSleepSeconds);
+            blackboard.Animal.Stats.RegenerateEnergy(sleepTime, _energyPerSecond);
 
-            transform.DORotate(Vector3.zero, 1f);
+            AIHelpers.Emote(_emotePrefab, transform, EmoteType.Sleep);
+            yield return new WaitForSeconds(sleepTime);
+
+            animal.ResetAnimation(1f);
             yield return new WaitForSeconds(1f);
+            
             onComplete?.Invoke();
         }
     }

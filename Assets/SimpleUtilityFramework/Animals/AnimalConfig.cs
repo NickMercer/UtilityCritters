@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SimpleUtilityFramework.Environment;
 using SimpleUtilityFramework.UtilitySystem;
 using UnityEngine;
 
@@ -34,6 +35,10 @@ namespace SimpleUtilityFramework.Animals
         [SerializeField]
         private float _walkSpeed = 10;
         public float WalkSpeed => _walkSpeed;
+
+        [SerializeField]
+        private FoodType _foodSourceType;
+        public FoodType FoodSourceType => _foodSourceType;
         
         [SerializeField]
         private List<AIBehaviour> _aiBehaviours;

@@ -2,7 +2,6 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 using DG.Tweening;
-using DG.Tweening.Core;
 
 [Serializable]
 public class AnimalStats
@@ -38,6 +37,14 @@ public class AnimalStats
     
     [ShowOnly]
     public int MaxEnergy;
+
+    public float HungerPercentage => Hunger / (float) MaxHunger;
+
+    public float ThirstPercentage => Thirst / (float) MaxThirst;
+
+    public float EnergyPercentage => Energy / (float) MaxEnergy;
+
+    public float HealthPercentage => Health / (float) MaxHealth;
     
 
     public AnimalStats(int maxHealth, int maxHunger, int maxThirst, int maxEnergy)
@@ -84,12 +91,21 @@ public class AnimalStats
         _thirst += thirst;
     }
 
-    public void RegenerateEnergy(float secondsToRegen)
+    public void RegenerateEnergy(float secondsToRegen, int regenPerSecond)
     {
         DOTween.To(() => Energy, 
             (x) => _energy = x, 
-            Mathf.Min(_energy + (5 * (int)secondsToRegen), MaxEnergy), 
+            Mathf.Min(_energy + (regenPerSecond * (int)secondsToRegen), MaxEnergy), 
             secondsToRegen)
+            .Play();
+    }
+
+    public void UpdateHealth(int health)
+    {
+        DOTween.To(() => Health, 
+            x => _health = x,
+            Mathf.Clamp(_health + health, 0, MaxHealth),
+            1f)
             .Play();
     }
 }

@@ -10,26 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c0c5dda29b44afd8ab39293e6b74f14, type: 3}
-  m_Name: Giraffe
+  m_Name: Lion
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 3f5f71fd88f901c46be76978212bbb31, type: 3}
-  _speciesName: Giraffe
-  _maxHealth: 210
-  _maxHunger: 120
-  _maxThirst: 105
-  _maxEnergy: 90
-  _walkSpeed: 15
-  _foodSourceType: 0
+  _sprite: {fileID: 21300000, guid: 6e4d576ee4b5c01428805fa6931fe723, type: 3}
+  _speciesName: Lion
+  _maxHealth: 175
+  _maxHunger: 130
+  _maxThirst: 100
+  _maxEnergy: 60
+  _walkSpeed: 13
+  _foodSourceType: 1
   _aiBehaviours:
   - {fileID: 11400000, guid: d6e154c8613a3a94681e74fece8c7cfa, type: 2}
   - {fileID: 11400000, guid: 416e79a10df900741847a09e5d03c858, type: 2}
   - {fileID: 11400000, guid: ec9cd7b6946a23c4bb6e133561e2a63b, type: 2}
   - {fileID: 11400000, guid: d50394c49c2834f4caa38fc205aad6b9, type: 2}
-  - {fileID: 11400000, guid: 841fb9b0e3290d449af6ed4af9570140, type: 2}
+  - {fileID: 11400000, guid: 62660437166d6dd4aad4da8b5e3344ba, type: 2}
   - {fileID: 11400000, guid: d3eccb8aaa07d2948889318be45bb9bb, type: 2}
   - {fileID: 11400000, guid: 3d323b9ae71821e4b88456d6bf53b907, type: 2}
   - {fileID: 11400000, guid: 5ef6afbf5a0eb3646ba02f0a5ccb07b9, type: 2}
-  - {fileID: 11400000, guid: 47144c55e5f92c8429b27101641b4c6b, type: 2}
-  - {fileID: 11400000, guid: 48f7497af61f7214198db5fe1ca89eae, type: 2}
-  - {fileID: 11400000, guid: 77d468254d79afa419f491457ee665b7, type: 2}
   - {fileID: 11400000, guid: 94dca793154d3964095c11e389ead4f7, type: 2}

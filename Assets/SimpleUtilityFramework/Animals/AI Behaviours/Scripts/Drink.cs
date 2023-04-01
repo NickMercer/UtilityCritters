@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Natick.SimpleUtility;
-using SimpleUtilityFramework.Environment;
 using SimpleUtilityFramework.UtilitySystem;
 using UnityEngine;
 
@@ -12,53 +11,53 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
     [CreateAssetMenu(fileName = "New Drink", menuName = "AI Behaviours/Drink", order = 0)]
     public class Drink : AIBehaviour
     {
+        [SerializeField]
+        private float _drinkAnimationSeconds = 2f;
+
+        [SerializeField]
+        private float _animationResetSeconds = 1f;
+        
         public override IEnumerable<ActionTarget> GetTargets(AIBlackboard blackboard)
         {
-            //Get all foods within eating range (1f)
-            var colliders = new Collider2D[5];
-            var size = Physics2D.OverlapCircleNonAlloc(blackboard.Self.transform.position, 1f, colliders);
-            for (var i = 0; i < size; i++)
+            foreach (var waterSource in AIHelpers.GetInRange<WaterSource>(0.5f, blackboard.Self.transform.position))
             {
-                var collider = colliders[i];
-                var water = collider.GetComponent<WaterSource>();
-                if (water != null)
+                if (waterSource.IsAvailable)
                 {
                     yield return new ActionTarget<WaterSource>
                     {
-                        Target = water,
-                        TargetLocation = water.transform.position,
-                        TargetObject = water.gameObject
+                        Target = waterSource,
+                        TargetLocation = waterSource.transform.position,
+                        TargetObject = waterSource.gameObject
                     };
                 }
             }
         }
 
-        public override float Score(AIBlackboard blackboard, ActionTarget target)
+        public override FloatNormal Score(AIBlackboard blackboard, ActionTarget target)
         {
-            var water = (target as ActionTarget<WaterSource>).Target;
+            var water = ((ActionTarget<WaterSource>) target).Target;
             if (water.IsAvailable == false)
-                return 0f;
+                return FloatNormal.Zero;
 
-            var currentThirst = blackboard.Animal.Stats.Thirst;
-            var maxThirst = blackboard.Animal.Stats.MaxThirst;
-            var thirstScore = currentThirst / (float)maxThirst;
+            var thirstScore = blackboard.Animal.Stats.ThirstPercentage;
             var waterQuality = water.ThirstToQuench / 10f;
             
-            return thirstScore * waterQuality;
+            return new FloatNormal(thirstScore * waterQuality);
         }
 
         public override IEnumerator Act(AIBlackboard blackboard, ActionTarget target, Action onComplete)
         {
-            var water = (target as ActionTarget<WaterSource>).Target;
+            var animal = blackboard.Animal;
+            var water = ((ActionTarget<WaterSource>) target).Target;
             
-            blackboard.Self.transform.DORotate(new Vector3(0, 0, -30), 2f);
+            animal.AnimateDrinking(_drinkAnimationSeconds);
             water.Occupy();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(_drinkAnimationSeconds);
             
             water.Consume(blackboard.Animal);
             
-            blackboard.Self.transform.DORotate(Vector3.zero, 1f);
-            yield return new WaitForSeconds(1f);
+            animal.ResetAnimation(_animationResetSeconds);
+            yield return new WaitForSeconds(_animationResetSeconds);
             water.Vacate();
             
             onComplete?.Invoke();

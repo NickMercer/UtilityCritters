@@ -10,9 +10,9 @@ namespace Natick.SimpleUtility
 
         public ActionTarget Target;
 
-        public float Score;
+        public FloatNormal Score;
 
-        public ActionSelection(AIBehaviour action, ActionTarget target, float score)
+        public ActionSelection(AIBehaviour action, ActionTarget target, FloatNormal score)
         {
             Action = action;
             Target = target;

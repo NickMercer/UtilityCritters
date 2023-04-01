@@ -2,5 +2,7 @@
 {
     Hunger,
     Thirst,
-    Sleep
+    Sleep,
+    Chase,
+    Run
 }

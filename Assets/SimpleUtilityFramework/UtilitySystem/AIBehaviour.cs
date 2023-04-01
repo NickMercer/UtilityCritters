@@ -10,7 +10,7 @@ namespace SimpleUtilityFramework.UtilitySystem
     {
         public abstract IEnumerable<ActionTarget> GetTargets(AIBlackboard blackboard);
         
-        public abstract float Score(AIBlackboard blackboard, ActionTarget target);
+        public abstract FloatNormal Score(AIBlackboard blackboard, ActionTarget target);
 
         public abstract IEnumerator Act(AIBlackboard blackboard, ActionTarget target, Action onComplete);
     }

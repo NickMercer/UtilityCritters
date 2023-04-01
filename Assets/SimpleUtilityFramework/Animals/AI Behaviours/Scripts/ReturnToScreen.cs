@@ -9,29 +9,35 @@ using Random = UnityEngine.Random;
 
 namespace SimpleUtilityFramework.Animals.AI_Behaviours
 {
-    [CreateAssetMenu(fileName = "New Return to Area", menuName = "AI Behaviours/Return To Area", order = 0)]
-    public class ReturnToArea : AIBehaviour
+    [CreateAssetMenu(fileName = "New Return to Screen", menuName = "AI Behaviours/Return To Screen", order = 0)]
+    public class ReturnToScreen : AIBehaviour
     {
+        [SerializeField]
+        private float _minSeconds = 2f;
+
+        [SerializeField]
+        private float _maxSeconds = 5f;
+        
         public override IEnumerable<ActionTarget> GetTargets(AIBlackboard blackboard)
         {
             yield return new ActionTarget();
         }
 
-        public override float Score(AIBlackboard blackboard, ActionTarget target)
+        public override FloatNormal Score(AIBlackboard blackboard, ActionTarget target)
         {
-            var screenBounds = GlobalBlackboard.Instance.Bounds;
+            var screenBounds = GlobalBlackboard.Bounds;
             var position = blackboard.Self.transform.position;
 
             var outOfHorizontalView = position.x > screenBounds.xMax || position.x < screenBounds.xMin;
             var outOfVerticalView = position.y > screenBounds.yMax || position.y < screenBounds.yMin;
             
-            return outOfHorizontalView || outOfVerticalView ? 1f : 0f;
+            return outOfHorizontalView || outOfVerticalView ? FloatNormal.One : FloatNormal.Zero;
         }
 
         public override IEnumerator Act(AIBlackboard blackboard, ActionTarget target, Action onComplete)
         {
-            var wanderTime = Random.Range(2f, 5f);
-            var screenBounds = GlobalBlackboard.Instance.Bounds;
+            var wanderTime = Random.Range(_minSeconds, _maxSeconds);
+            var screenBounds = GlobalBlackboard.Bounds;
             var transform = blackboard.Self.transform;
             var moveSpeed = Random.Range(0, blackboard.Animal.AnimalData.WalkSpeed / 10);
             

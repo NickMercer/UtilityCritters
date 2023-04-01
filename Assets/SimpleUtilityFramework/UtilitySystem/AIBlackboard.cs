@@ -12,8 +12,12 @@ namespace Natick.SimpleUtility
         
         public GameObject Self => _animal.gameObject;
 
-        public GlobalBlackboard _globalBlackboard;
+        [SerializeField]
+        private GlobalBlackboard _globalBlackboard;
         public GlobalBlackboard GlobalBlackboard => _globalBlackboard;
+        
+        [ShowOnly]
+        public ActionSelection LastSelection;
 
         public AIBlackboard(Animal animal)
         {

@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0bef82a7bc44b05b4dd1af14ea7d85b, type: 3}
-  m_Name: Move To Water
+  m_Script: {fileID: 11500000, guid: 5b70c9b275ca405cb9a38edba034c2ce, type: 3}
+  m_Name: Fight Back
   m_EditorClassIdentifier: 
-  _emotePrefab: {fileID: 388342132207081097, guid: cefde015cbd1ce449a922275d5eba65f, type: 3}
