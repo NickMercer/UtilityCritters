@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using DG.Tweening;
 using Natick.SimpleUtility;
-using SimpleUtilityFramework.UtilitySystem;
+using Natick.Utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,6 +11,8 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
     [CreateAssetMenu(menuName = "AI Behaviours/Sleep", fileName = "New Sleep", order = 0)]
     public class Sleep : AIBehaviour
     {
+        public override int Priority { get; } = 2;
+        
         [SerializeField]
         private Emote _emotePrefab;
 

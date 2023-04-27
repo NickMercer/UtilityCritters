@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Natick.SimpleUtility;
+using Natick.Utilities;
 using SimpleUtilityFramework.Environment;
-using SimpleUtilityFramework.UtilitySystem;
 using UnityEngine;
 
 namespace SimpleUtilityFramework.Animals.AI_Behaviours
@@ -11,6 +11,8 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
     [CreateAssetMenu(fileName = "New Eat", menuName = "AI Behaviours/Eat", order = 0)]
     public class Eat : AIBehaviour
     {
+        public override int Priority { get; } = 2;
+        
         [SerializeField]
         private float _secondsToEat = 1f;
         

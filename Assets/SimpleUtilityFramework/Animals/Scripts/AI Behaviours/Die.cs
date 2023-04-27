@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Natick.SimpleUtility;
-using SimpleUtilityFramework.UtilitySystem;
+using Natick.Utilities;
 using UnityEngine;
 
 namespace SimpleUtilityFramework.Animals.AI_Behaviours
@@ -11,6 +11,8 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
     [CreateAssetMenu(fileName = "New Die", menuName = "AI Behaviours/Die", order = 0)]
     public class Die : AIBehaviour
     {
+        public override int Priority { get; } = 10;
+
         public override IEnumerable<ActionTarget> GetTargets(AIBlackboard blackboard)
         {
             yield return new ActionTarget();

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Natick.SimpleUtility;
-using SimpleUtilityFramework.UtilitySystem;
+using Natick.Utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

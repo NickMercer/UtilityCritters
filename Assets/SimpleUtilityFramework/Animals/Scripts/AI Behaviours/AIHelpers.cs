@@ -30,5 +30,13 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
             var emote = GameObject.Instantiate(emotePrefab, parent.position + new Vector3(0, 1, 0), Quaternion.identity, parent);
             emote.Initialize(emoteType);
         }
+
+        public static bool IsOffScreen(Vector2 position, Rect screenBounds)
+        {
+            var outOfHorizontalView = position.x > screenBounds.xMax || position.x < screenBounds.xMin;
+            var outOfVerticalView = position.y > screenBounds.yMax || position.y < screenBounds.yMin;
+
+            return outOfHorizontalView || outOfVerticalView;
+        }
     }
 }

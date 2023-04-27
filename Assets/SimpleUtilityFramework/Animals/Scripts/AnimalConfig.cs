@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Natick.SimpleUtility;
 using SimpleUtilityFramework.Environment;
-using SimpleUtilityFramework.UtilitySystem;
 using UnityEngine;
 
 namespace SimpleUtilityFramework.Animals

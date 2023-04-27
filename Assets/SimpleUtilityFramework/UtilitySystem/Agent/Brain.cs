@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SimpleUtilityFramework.UtilitySystem;
 using UnityEngine;
 
 namespace Natick.SimpleUtility
@@ -39,7 +38,7 @@ namespace Natick.SimpleUtility
                     var selection = new ActionSelection(action, target, score);
                     _lastScores.Add(selection);
                     
-                    if (score.Value > topSelection.Score.Value)
+                    if (score.Value > topSelection.Score.Value || (score.Value == topSelection.Score.Value && selection.Action.Priority >= topSelection.Action.Priority))
                     {
                         topSelection = selection;
                     }

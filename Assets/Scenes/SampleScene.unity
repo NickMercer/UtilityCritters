@@ -419,6 +419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giraffe 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
 --- !u!1001 &193441017
@@ -780,6 +784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giraffe 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2874572700986034880, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -849,6 +857,10 @@ PrefabInstance:
     - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_Name
       value: Giraffe 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
@@ -1148,6 +1160,10 @@ PrefabInstance:
     - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_Name
       value: Giraffe 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
@@ -2378,6 +2394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giraffe 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
 --- !u!4 &972104060 stripped
@@ -2784,7 +2804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1051600046872363073, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.14
+      value: -6.02
       objectReference: {fileID: 0}
     - target: {fileID: 1051600046872363073, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2821,6 +2841,10 @@ PrefabInstance:
     - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_Name
       value: Lion 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2874572700986034880, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3365,7 +3389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1051600046872363073, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.04
+      value: -4.9199996
       objectReference: {fileID: 0}
     - target: {fileID: 1051600046872363073, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3402,6 +3426,10 @@ PrefabInstance:
     - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_Name
       value: Lion 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2874572700986034880, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4081,6 +4109,10 @@ PrefabInstance:
     - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
       propertyPath: m_Name
       value: Giraffe 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051600046872363074, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2a7d19c266cea1449f8190c3685f870, type: 3}

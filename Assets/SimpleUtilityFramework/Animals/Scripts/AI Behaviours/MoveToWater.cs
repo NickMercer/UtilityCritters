@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Natick.SimpleUtility;
-using SimpleUtilityFramework.UtilitySystem;
+using Natick.Utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -35,7 +35,7 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
 
         public override FloatNormal Score(AIBlackboard blackboard, ActionTarget target)
         {
-            var waterTarget = (target as ActionTarget<WaterSource>).Target;
+            var waterTarget = ((ActionTarget<WaterSource>) target).Target;
             if (waterTarget.IsAvailable == false)
                 return FloatNormal.Zero;
             

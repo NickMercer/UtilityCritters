@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Natick.SimpleUtility;
+using Natick.Utilities;
 using SimpleUtilityFramework.Environment;
-using SimpleUtilityFramework.UtilitySystem;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Globalization;
 using UnityEngine;
 
-namespace SimpleUtilityFramework.UtilitySystem
+namespace Natick.Utilities
 {
     [Serializable]
     public struct FloatNormal
     {
-        public static FloatNormal Zero = new FloatNormal(0f, 0f, 1f);
-        public static FloatNormal One = new FloatNormal(1f, 0f, 1f);
+        public static FloatNormal Zero = new FloatNormal(0f);
+        public static FloatNormal One = new FloatNormal(1f);
 
         [field: SerializeField, ShowOnly]
         private float _value;
@@ -23,7 +24,7 @@ namespace SimpleUtilityFramework.UtilitySystem
 
         public override string ToString()
         {
-            return Value.ToString();
+            return Value.ToString(CultureInfo.InvariantCulture);
         }
     }
 }

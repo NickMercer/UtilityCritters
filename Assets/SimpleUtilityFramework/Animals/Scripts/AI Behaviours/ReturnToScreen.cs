@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Natick.SimpleUtility;
-using SimpleUtilityFramework.UtilitySystem;
+using Natick.Utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,6 +12,8 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
     [CreateAssetMenu(fileName = "New Return to Screen", menuName = "AI Behaviours/Return To Screen", order = 0)]
     public class ReturnToScreen : AIBehaviour
     {
+        public override int Priority { get; } = 5;
+        
         [SerializeField]
         private float _minSeconds = 2f;
 
@@ -27,11 +29,9 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
         {
             var screenBounds = GlobalBlackboard.Bounds;
             var position = blackboard.Self.transform.position;
-
-            var outOfHorizontalView = position.x > screenBounds.xMax || position.x < screenBounds.xMin;
-            var outOfVerticalView = position.y > screenBounds.yMax || position.y < screenBounds.yMin;
+            var offScreen = AIHelpers.IsOffScreen(position, screenBounds);
             
-            return outOfHorizontalView || outOfVerticalView ? FloatNormal.One : FloatNormal.Zero;
+            return offScreen ? FloatNormal.One : FloatNormal.Zero;
         }
 
         public override IEnumerator Act(AIBlackboard blackboard, ActionTarget target, Action onComplete)

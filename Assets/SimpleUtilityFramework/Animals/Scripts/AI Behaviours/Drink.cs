@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Natick.SimpleUtility;
-using SimpleUtilityFramework.UtilitySystem;
+using Natick.Utilities;
 using UnityEngine;
 
 namespace SimpleUtilityFramework.Animals.AI_Behaviours
@@ -11,6 +11,8 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
     [CreateAssetMenu(fileName = "New Drink", menuName = "AI Behaviours/Drink", order = 0)]
     public class Drink : AIBehaviour
     {
+        public override int Priority { get; } = 2;
+        
         [SerializeField]
         private float _drinkAnimationSeconds = 2f;
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using SimpleUtilityFramework.UtilitySystem;
+using Natick.Utilities;
 
 namespace Natick.SimpleUtility
 {

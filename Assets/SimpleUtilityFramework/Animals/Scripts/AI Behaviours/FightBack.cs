@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Natick.SimpleUtility;
+using Natick.Utilities;
 using SimpleUtilityFramework.Environment;
-using SimpleUtilityFramework.UtilitySystem;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,6 +13,8 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
     [CreateAssetMenu(fileName = "New Fight Back", menuName = "AI Behaviours/Fight Back", order = 0)]
     public class FightBack : AIBehaviour
     {
+        public override int Priority { get; } = 3;
+        
         [SerializeField]
         private float _fightingSeconds = 1f;
 

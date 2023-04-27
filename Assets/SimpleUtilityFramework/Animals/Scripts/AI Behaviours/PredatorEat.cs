@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Natick.SimpleUtility;
-using SimpleUtilityFramework.UtilitySystem;
+using Natick.Utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -42,6 +42,10 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
             var animal = ((ActionTarget<Animal>) target).Target;
             if(animal.FoodSource.IsAvailable == false)
                 return FloatNormal.Zero;
+
+            var lastAction = blackboard.LastSelection.Action;
+            var previouslyAttacked = lastAction != null && (lastAction.name == name || lastAction.name == "MoveToFood");
+            var momentumBonus = previouslyAttacked ? 1.1f : 1f;
             
             var preyHealth = animal.Stats.HealthPercentage;
             var preyHealthScore = Mathf.Min(1, 1.5f - preyHealth);
@@ -49,7 +53,7 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
             var hungerScore = blackboard.Animal.Stats.HungerPercentage;
             var foodQuality = animal.FoodSource.FoodAmount / 30f;
             
-            return new FloatNormal(hungerScore * foodQuality * preyHealthScore);
+            return new FloatNormal(hungerScore * foodQuality * preyHealthScore * momentumBonus);
         }
 
         public override IEnumerator Act(AIBlackboard blackboard, ActionTarget target, Action onComplete)

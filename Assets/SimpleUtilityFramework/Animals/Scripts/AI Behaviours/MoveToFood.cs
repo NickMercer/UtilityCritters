@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Natick.SimpleUtility;
+using Natick.Utilities;
 using SimpleUtilityFramework.Environment;
-using SimpleUtilityFramework.UtilitySystem;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,8 +25,19 @@ namespace SimpleUtilityFramework.Animals.AI_Behaviours
                 if (source == null)
                     continue;
 
-                var sourceIsWrongFoodType = source.FoodType != blackboard.Animal.AnimalData.FoodSourceType;
+                var foodType = blackboard.Animal.AnimalData.FoodSourceType;
+                var sourceIsWrongFoodType = source.FoodType != foodType;
                 if (sourceIsWrongFoodType)
+                    continue;
+
+                if (foodType == FoodType.Animal && source.GetComponent<Animal>().AnimalData.SpeciesName ==
+                    blackboard.Animal.AnimalData.SpeciesName)
+                    continue;
+
+                var screenBounds = GlobalBlackboard.Bounds;
+                var position = source.transform.position;
+                var targetOffScreen = AIHelpers.IsOffScreen(position, screenBounds);
+                if (targetOffScreen)
                     continue;
                 
                 yield return new ActionTarget<FoodSource>
