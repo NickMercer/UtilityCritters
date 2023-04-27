@@ -35,16 +35,16 @@ If you want to take a look at the code and see how the Utility AI System works, 
 Here are some great resources for learning/implementing Utility AI in Unity or in general:
 
 #### Theory / General Introduction
-(Youtube Essay) [How Utility AI Helps NPCs Decide What to Do Next - AI and Games](https://www.youtube.com/watch?v=p3Jbp2cZg3Q)
-(Conference Talk) [Building a Better Centaur: AI at Massive Scale - Mike Lewis, Dave Mark](https://www.gdcvault.com/play/1021848/Building-a-Better-Centaur-AI)
-(Article) [An Introduction to Utility Theory - Rez Graham](http://www.gameaipro.com/GameAIPro/GameAIPro_Chapter09_An_Introduction_to_Utility_Theory.pdf)
-(Article) [AI Decision Making with Utility Scores - Jon McGuire](https://mcguirev10.com/2019/01/03/ai-decision-making-with-utility-scores-part-1.html)
+- (Youtube Essay) [How Utility AI Helps NPCs Decide What to Do Next - AI and Games](https://www.youtube.com/watch?v=p3Jbp2cZg3Q)
+- (Conference Talk) [Building a Better Centaur: AI at Massive Scale - Mike Lewis, Dave Mark](https://www.gdcvault.com/play/1021848/Building-a-Better-Centaur-AI)
+- (Article) [An Introduction to Utility Theory - Rez Graham](http://www.gameaipro.com/GameAIPro/GameAIPro_Chapter09_An_Introduction_to_Utility_Theory.pdf)
+- (Article) [AI Decision Making with Utility Scores - Jon McGuire](https://mcguirev10.com/2019/01/03/ai-decision-making-with-utility-scores-part-1.html)
 
 #### Tutorials / Implementation Details
-(Youtube Tutorial Series) [Utility AI For Unity - TooLoo](https://www.youtube.com/watch?v=ejKrvhusU1I&list=PLDpv2FF85TOp2KpIGcrxXY1POzfYLGWIb)
-(Conference Talk) [Improving AI Decision Modeling Through Utility Theory - Kevin Dill, Dave Mark](https://www.gdcvault.com/play/1012410/Improving-AI-Decision-Modeling-Through)
-(Conference Talk) [Embracing the Dark Art of Mathematical Modeling in AI - Kevin Dill, Dave Mark](https://www.gdcvault.com/play/1015421/Embracing-the-Dark-Art-of)
-(Conference Talk) [Winding Road Ahead: Designing Utility AI with Curvature - Mike Lewis](https://www.youtube.com/watch?v=TCf1GdRrerw&t=4s)
+- (Youtube Tutorial Series) [Utility AI For Unity - TooLoo](https://www.youtube.com/watch?v=ejKrvhusU1I&list=PLDpv2FF85TOp2KpIGcrxXY1POzfYLGWIb)
+- (Conference Talk) [Improving AI Decision Modeling Through Utility Theory - Kevin Dill, Dave Mark](https://www.gdcvault.com/play/1012410/Improving-AI-Decision-Modeling-Through)
+- (Conference Talk) [Embracing the Dark Art of Mathematical Modeling in AI - Kevin Dill, Dave Mark](https://www.gdcvault.com/play/1015421/Embracing-the-Dark-Art-of)
+- (Conference Talk) [Winding Road Ahead: Designing Utility AI with Curvature - Mike Lewis](https://www.youtube.com/watch?v=TCf1GdRrerw&t=4s)
 
 ## Final Thoughts
 
